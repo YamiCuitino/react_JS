@@ -2,8 +2,8 @@ import "../main.css";
 import PropTypes from 'prop-types';
 
 
-function ItemMenu(props) {
-    ItemMenu.propTypes={
+function Item(props) {
+    Item.propTypes={
         llave : PropTypes.number.isRequired,
         clase : PropTypes.string.isRequired
     }
@@ -23,4 +23,4 @@ function ItemMenu(props) {
     )
 }
 
-export default ItemMenu
+export default Item

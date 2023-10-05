@@ -1,9 +1,9 @@
 import "../main.css";
-import ItemMenu from "./Itemmenu";
-import SubListaMenu3 from "./SubListaMenu3";
+import Item from "./Itemmenu";
+import SubMenu3 from "./SubMenu3";
 import { useState } from "react";
 
-function SubListaMenu2(props) {
+function SubMenu(props) {
 
     const { datos, Menu } = props;
 
@@ -30,13 +30,13 @@ function SubListaMenu2(props) {
     };
 
     return (
-        <ul className="ul-segundo-nivel">
+        <ul className="ulSubMenu">
             {datos.menuItems.map((subItem) => {
                 return (
                     Menu === subItem.idPadre ?
                         subItem.isFolder ?
-                            <ItemMenu llave={subItem.id}
-                                clase="li-subMenu"
+                            <Item llave={subItem.id}
+                                clase="listaSubMenu"
                                 style={{
                                     background: datos.configColor.itemBackground,
                                     color: estadoSubLista2[subItem.id] && datos.configColor.itemActive
@@ -53,11 +53,11 @@ function SubListaMenu2(props) {
                                     </span>
                                 </div>
                                 {estadoSubLista2[subItem.id] &&
-                                    <SubListaMenu3 data={datos.menuItems} subMenu2={subItem.id} >  </SubListaMenu3>
+                                    <SubMenu3 data={datos.menuItems} subMenu2={subItem.id} >  </SubMenu3>
                                 }
-                            </ItemMenu>
+                            </Item>
                             :
-                            <ItemMenu llave={subItem.id} clase="li-subMenu" > {subItem.name} </ItemMenu>
+                            <Item llave={subItem.id} clase="listaSubMenu" > {subItem.name} </Item>
                         :
                         ""
                 )
@@ -67,4 +67,4 @@ function SubListaMenu2(props) {
     )
 }
 
-export default SubListaMenu2
+export default SubMenu

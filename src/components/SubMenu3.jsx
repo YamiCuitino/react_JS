@@ -1,16 +1,16 @@
 import "../main.css";
-import ItemMenu from "./Itemmenu";
+import Item from "./Itemmenu";
 
 
-function SubListaMenu3(props) {
+function SubMenu3(props) {
     const datos = props.data
     const SubMenu2 = props.subMenu2
     return (
-        <ul key="" className="ul-tercer-nivel">
+        <ul key="" className="ulSubMenu3">
             {datos.map((subItem3) => {
                 return (
                     SubMenu2 === subItem3.idPadre &&
-                    <ItemMenu llave={subItem3.id} clase = "li-subMenu" > {subItem3.name} </ItemMenu>
+                    <Item llave={subItem3.id} clase = "listaSubMenu" > {subItem3.name} </Item>
                 )
             }
             )}
@@ -18,4 +18,4 @@ function SubListaMenu3(props) {
     )
 }
 
-export default SubListaMenu3
+export default SubMenu3

@@ -1,9 +1,9 @@
 import { useState } from "react";
 import "../main.css";
-import ItemMenu from "./Itemmenu";
-import SubListaMenu2 from "./SubListaMenu2";
+import Item from "./Itemmenu";
+import SubMenu from "./SubMenu";
 
-function ListaMenu(props) {
+function Menu(props) {
   const datos = props.data
 
   const [estadoSubLista, setestadoSubLista] = useState([])
@@ -30,9 +30,9 @@ function ListaMenu(props) {
           <div>
             {item.idPadre === datos.idFirstNivel ?
               item.isFolder ?              
-                <ItemMenu
+                <Item
                   llave={item.id}
-                  clase="li-Menu"
+                  clase="menu"
                   style={{
                     background: datos.configColor.itemBackground,
                     color: estadoSubLista[item.id] ? datos.configColor.itemActive : datos.configColor.itemColor
@@ -47,16 +47,16 @@ function ListaMenu(props) {
                     </div>
                   </span>
                   {estadoSubLista[item.id] &&
-                    <SubListaMenu2 datos={datos} Menu={item.id} ></SubListaMenu2>
+                    <SubMenu datos={datos} Menu={item.id} ></SubMenu>
                   }
-                </ItemMenu>
+                </Item>
                 : 
-                <ItemMenu
+                <Item
                   llave={item.id}
-                  clase="li-Menu"
+                  clase="menu"
                   style={{ color: datos.configColor.itemColor }}
                 >{item.name}
-                </ItemMenu> 
+                </Item> 
               :
               ""}
           </div>
@@ -67,5 +67,5 @@ function ListaMenu(props) {
   )
 }
 
-export default ListaMenu
+export default Menu
 
